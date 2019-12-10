@@ -2,12 +2,33 @@ $primaryColor: #24343b;
 $secondaryColor: #f8f8f8;
 $accentcolor: #d49b29;
 
+.hidden {
+  display: none;
+}
+
 body {
     padding: 50px;
     font-family: 'Montserrat', sans-serif;
   }
   
   a {
-    color: #00B7FF;
+    color: $primaryColor;
+    text-decoration: none;
   }
   
+  li {
+    list-style: none;
+  }
+
+#bmIcon{
+  color: #d49b29;
+  }
+
+  img {
+    border-radius: 50%;
+  }
+
+  #dashboard {
+    display: flex;
+    flex-direction: row;
+  }
