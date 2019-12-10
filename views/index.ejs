@@ -10,7 +10,15 @@
     <p>Welcome to <%= title %></p>
     <!-- chart testing -->
     <canvas id="doughnutChart"></canvas>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
-        <script src="/javascripts/dataViz.js"></script>
+    
+    <div id="app">
+      <p class="temperature" v-on:click="toggleTemperature">{{temperature | temperatureUnit}} {{unit}}</p>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@2.3.4"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script src="/javascripts/dataViz.js"></script>
+    <script src="/javascripts/app.js"></script>
   </body>
 </html>
