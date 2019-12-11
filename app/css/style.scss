@@ -7,7 +7,8 @@ $accentcolor: #d49b29;
 }
 
 body {
-    padding: 50px;
+    padding: 25px;
+    /*margin-top: 20%;*/
     font-family: 'Montserrat', sans-serif;
   }
   
@@ -16,12 +17,44 @@ body {
     text-decoration: none;
   }
   
-  li {
-    list-style: none;
+
+  ul{
+
+
   }
+
+#menu{
+    visibility: hidden;
+  height: 0px;
+}
+ 
+#container{
+  margin-top: -20%;
+
+}
+
+#burgerMenu{
+   margin-right: auto;
+   background-color: red;
+}
+
+ #navigation li {
+    list-style: none;
+    text-align: left;
+    margin-left: -40%;
+
+  }
+
+ #nativation ul{
+    text-align: left;
+    list-style: none;
+ } 
 
 #bmIcon{
   color: #d49b29;
+  background-color: green;
+  margin-left: -5%;
+  margin-top: -30%;
   }
 
   img {
