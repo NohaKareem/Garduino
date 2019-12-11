@@ -56,6 +56,13 @@
             <div id="data">
                <canvas id="doughnutChart"></canvas>
             </div>
+
+            <div id="app">
+             <p class="temperature" v-on:click="toggleTemperature">{{temperature | temperatureUnit}} {{unit}}</p>
+            </div>
+
+            <p id="johnnyFiveData"></p>
+
         </section>
 
         <footer>
@@ -64,6 +71,8 @@
    
     </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
-    <script src="public/javascripts/dataViz.js"></script>
+    <script src="https://unpkg.com/vue@2.3.4"></script>
+    <script src="app/js/main.js"></script>
+    <script src="app/js/dataViz.js"></script>
 </body>
 </html>

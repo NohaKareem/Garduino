@@ -22,23 +22,23 @@ process.__defineGetter__("stdin", function() {
 
 
 // johnny-five
-var five = require("johnny-five");		
-var board = new five.Board({
+var johnnyFive = require("johnny-five");		
+var breadboard = new johnnyFive.Board({
 	repl: false		
 });
 
-var valueDiv = document.querySelector("#plantValue");
+var displayCon = document.querySelector("#johnnyFiveData");
 
-board.on("ready", function(){		
-	var sensor = new five.Sensor({
+breadboard.on("ready", function(){		
+	var sensor = new johnnyFive.Sensor({
 		pin: "A0",
 		freq: 250,
 		threshold: 2
 	});
 
 	sensor.on("change", function(){
-		var sensorInfo = this.value
-		valueDiv.innerHTML = sensorInfo;
+		var hydrometerData = this.value
+		displayCon.innerHTML = hydrometerData;
 	});
 
 });
