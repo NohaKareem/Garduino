@@ -16,9 +16,9 @@ let mainWindow
 
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
-      height: 505,
-      width: 595,
-      resizable: false,
+      height: 800,
+      width: 1200,
+      resizable: true,
       title: 'j5/electron template',
       frame: false,
         webPreferences: {
