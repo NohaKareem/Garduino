@@ -23,4 +23,39 @@
         }
     });
 
+    var lineChartArea = document.querySelector("#lineChart");
+    Chart.defaults.scale.ticks.beginAtZero = true;
+    data = [1,2,3,2,4,1,2];
+    labels = ["1","2","3","2","4","1","2"];
+    var lineChart = new Chart(lineChartArea, {
+        type: 'line', 
+            data: {
+                labels: labels,
+                datasets: [
+                { 
+                    data: data,
+                    borderColor: backgroundColor[0], 
+                    backgroundColor: "rgba(255, 255, 255, 0)"
+                }
+            ]
+        }, options: {
+            animation: {
+                animateScale: true
+            }, 
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: true
+                    },
+                    display: false,
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display: true
+                    },
+                    display: false,
+                }]
+            }
+        }
+    });
 })();
