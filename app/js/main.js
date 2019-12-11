@@ -21,24 +21,50 @@ process.__defineGetter__("stdin", function() {
 });
 
 
-
-var five = require("johnny-five");		//create a var and grab j5 
+// johnny-five
+var five = require("johnny-five");		
 var board = new five.Board({
-	repl: false		//read evaluate print loop
+	repl: false		
 });
 
 var valueDiv = document.querySelector("#plantValue");
 
-board.on("ready", function(){		//fire off the ready event
+board.on("ready", function(){		
 	var sensor = new five.Sensor({
-		pin: "A0",		//analogue 0
-		freq: 250,		//frequency
+		pin: "A0",
+		freq: 250,
 		threshold: 2
 	});
 
 	sensor.on("change", function(){
-		var sensorInfo = this.value;		//getting the sensor data
-		valueDiv.innerHTML = sensorInfo;		//output it to our screen
+		var sensorInfo = this.value
+		valueDiv.innerHTML = sensorInfo;
 	});
 
+});
+
+// vue
+var vm = new Vue({ 
+    el: "#app", 
+    data: {
+        unit: "C",
+        isCelcius: true, 
+        temperature: 20 // placeholder temp
+    }, 
+    filters: {
+        temperatureUnit(value) {
+            return `${value}°`;
+        }
+    },
+    methods: {
+        toggleTemperature: function() {
+            // toggle unit
+            this.isCelcius =! this.isCelcius;
+            this.unit = this.isCelcius ? "C" : "F";
+
+            // change temperature
+            this.temperature = this.isCelcius ? (this.temperature - 32) * 5/9 : (this.temperature * 9/5) + 32;
+            return this.temperature;
+        }
+    }
 });
