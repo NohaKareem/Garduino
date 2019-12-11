@@ -21,27 +21,24 @@ process.__defineGetter__("stdin", function() {
 });
 
 
-var vm = new Vue({ 
-    el: "#app", 
-    data: {
-        unit: "C",
-        isCelcius: true, 
-        temperature: 20 // placeholder temp
-    }, 
-    filters: {
-        temperatureUnit(value) {
-            return `${value}°`;
-        }
-    },
-    methods: {
-        toggleTemperature: function() {
-            // toggle unit
-            this.isCelcius =! this.isCelcius;
-            this.unit = this.isCelcius ? "C" : "F";
 
-            // change temperature
-            this.temperature = this.isCelcius ? (this.temperature - 32) * 5/9 : (this.temperature * 9/5) + 32;
-            return this.temperature;
-        }
-    }
+var five = require("johnny-five");		//create a var and grab j5 
+var board = new five.Board({
+	repl: false		//read evaluate print loop
+});
+
+var valueDiv = document.querySelector("#plantValue");
+
+board.on("ready", function(){		//fire off the ready event
+	var sensor = new five.Sensor({
+		pin: "A0",		//analogue 0
+		freq: 250,		//frequency
+		threshold: 2
+	});
+
+	sensor.on("change", function(){
+		var sensorInfo = this.value;		//getting the sensor data
+		valueDiv.innerHTML = sensorInfo;		//output it to our screen
+	});
+
 });
