@@ -12,23 +12,17 @@ body {
     font-family: 'Montserrat', sans-serif;
   }
   
-  a {
-    color: $primaryColor;
-    text-decoration: none;
-  }
-  
+a {
+  color: $primaryColor;
+  text-decoration: none;
+}
 
-  ul{
-
-
-  }
-
-#menu{
+#menu {
     visibility: hidden;
   height: 0px;
 }
  
-#container{
+#container {
   margin-top: -20%;
 
 }
@@ -67,4 +61,9 @@ body {
   
 .temperature:hover {
   cursor: pointer;
+}
+
+#doughnutChartsCon {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1));
 }

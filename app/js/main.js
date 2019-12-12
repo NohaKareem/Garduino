@@ -20,7 +20,6 @@ process.__defineGetter__("stdin", function() {
   return process.__stdin;
 });
 
-
 // johnny-five
 var johnnyFive = require("johnny-five");		
 var breadboard = new johnnyFive.Board({
@@ -30,41 +29,42 @@ var breadboard = new johnnyFive.Board({
 var displayCon = document.querySelector("#johnnyFiveData");
 
 breadboard.on("ready", function(){		
-	var sensor = new johnnyFive.Sensor({
+        console.log("change")
+        var sensor = new johnnyFive.Sensor({
 		pin: "A0",
 		freq: 250,
 		threshold: 2
 	});
 
 	sensor.on("change", function(){
+        console.log("change")
 		var hydrometerData = this.value
 		displayCon.innerHTML = hydrometerData;
 	});
-
 });
 
 // vue
-var vm = new Vue({ 
-    el: "#app", 
-    data: {
-        unit: "C",
-        isCelcius: true, 
-        temperature: 20 // placeholder temp
-    }, 
-    filters: {
-        temperatureUnit(value) {
-            return `${value}°`;
-        }
-    },
-    methods: {
-        toggleTemperature: function() {
-            // toggle unit
-            this.isCelcius =! this.isCelcius;
-            this.unit = this.isCelcius ? "C" : "F";
+// var vm = new Vue({ 
+//     el: "#app", 
+//     data: {
+//         unit: "C",
+//         isCelcius: true, 
+//         temperature: 20 // placeholder temp
+//     }, 
+//     filters: {
+//         temperatureUnit(value) {
+//             return `${value}°`;
+//         }
+//     },
+//     methods: {
+//         toggleTemperature: function() {
+//             // toggle unit
+//             this.isCelcius =! this.isCelcius;
+//             this.unit = this.isCelcius ? "C" : "F";
 
-            // change temperature
-            this.temperature = this.isCelcius ? (this.temperature - 32) * 5/9 : (this.temperature * 9/5) + 32;
-            return this.temperature;
-        }
-    }
-});
+//             // change temperature
+//             this.temperature = this.isCelcius ? (this.temperature - 32) * 5/9 : (this.temperature * 9/5) + 32;
+//             return this.temperature;
+//         }
+//     }
+// });
