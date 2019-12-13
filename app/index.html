@@ -72,7 +72,7 @@
                     <h2 id="humidityCurrReading" class="sensorData"></h2>
                 </div>
 
-                <div id="tempCon">
+                <div id="tempCon" class="sensorCon">
                   <h2 id="temperatureCurrReading" class="sensorData"></h2>
                 </div>
                 
@@ -91,7 +91,6 @@
             <!-- <div id="app">
              <p class="temperature" v-on:click="toggleTemperature">{{temperature | temperatureUnit}} {{unit}}</p>
             </div>       -->
-
         </section>
 
         <footer>
@@ -101,24 +100,8 @@
                 <li><a href="#">Privacy</a></li>
             </ul></div>
         </footer>
-   
     </main>
 
-    <!-- <script>
-        const { exec } = require('child_process');
-
-        const child = exec('node app/js/main.js',
-            (error, stdout, stderr) => {
-                console.log(`stdout: ${stdout}`);
-                console.log(`stderr: ${stderr}`);
-                if (error !== null) {
-                console.log(`exec error: ${error}`);
-                }
-            });
-            child.stdout.on('data', (data) => {
-            console.log(data.toString());
-        });
-    </script> -->
      <!-- <script src="https://unpkg.com/vue@2.3.4"></script>    -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
     <script src="js/gsap.min.js"></script>
