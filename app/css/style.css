@@ -25,6 +25,23 @@ a {
   color: #24343b;
 }
 
+#welcome {
+  text-align: center;
+  color: #24343b;
+  margin-bottom: 80px;
+  line-height: 28px;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+h2 {
+  font-size: 18px;
+  word-spacing: 3px;
+}
+
 #bmIcon {
   position: fixed;
   font-size: 27px;
@@ -163,10 +180,7 @@ a {
   }
 
   #welcome {
-    text-align: center;
-    color: #24343b;
-    margin-bottom: 80px;
-    font-weight: normal;
+    line-height: 80px;
   }
 
   h1 {

@@ -49,6 +49,23 @@ body {
     text-decoration: none;
     color: $primaryColor;
   }
+  #welcome {
+    text-align: center;
+    color: $primaryColor;
+    margin-bottom: 80px;
+    line-height: 28px;
+    font-weight: normal;
+  }
+
+
+  h1 {
+    font-size: 25px;
+  }
+
+  h2 {
+    font-size: 18px;
+    word-spacing: 3px;
+  }
 
 #bmIcon{
   position: fixed;
@@ -212,10 +229,7 @@ body {
   }
 
   #welcome {
-    text-align: center;
-    color: $primaryColor;
-    margin-bottom: 80px;
-    font-weight: normal;
+    line-height: 80px;
   }
 
   h1 {
