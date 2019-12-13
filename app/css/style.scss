@@ -145,7 +145,7 @@ body {
 
 #doughnutChartsCon {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
 }
 
 .sensorCon {
@@ -158,7 +158,7 @@ body {
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 40px;
+  font-size: 20px;
 }
 
 #footerMenu {
@@ -231,5 +231,14 @@ body {
 
   #footerMenu {
     font-size: 18px;
+  }
+
+  // data visualization
+  #doughnutChartsCon {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sensorData {
+    font-size: 40px;
   }
 }
