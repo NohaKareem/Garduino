@@ -4,5 +4,5 @@ Garduino is a web-based plant-monitoring system using arduino and johnny-five js
 
 ## Instructions
 
-- run npm install
-
+- run ```npm-install ```
+- if on windows, may need to install Electron globally ```run npm i -g electron```
