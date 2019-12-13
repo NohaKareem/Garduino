@@ -25,6 +25,23 @@ a {
   color: #24343b;
 }
 
+#welcome {
+  text-align: center;
+  color: #24343b;
+  margin-bottom: 80px;
+  line-height: 28px;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 25px;
+}
+
+h2 {
+  font-size: 18px;
+  word-spacing: 3px;
+}
+
 #bmIcon {
   position: fixed;
   font-size: 27px;
@@ -167,11 +184,21 @@ a {
     list-style: none;
   }
   #menu ul div.button {
+    border-radius: 50%;
+    background-color: #f8f8f8;
     display: flex;
-    margin-bottom: 1px;
   }
   #menu ul ion-icon {
     color: #d49b29;
+    margin-top: 17px;
+    color: #d49b29;
+  }
+  #menu ul .button:hover {
+    background-color: #d49b29;
+    color: #f8f8f8;
+  }
+  #menu ul .button:hover ion-icon {
+    color: #f8f8f8;
   }
 
   #logo {
@@ -180,10 +207,7 @@ a {
   }
 
   #welcome {
-    text-align: center;
-    color: #24343b;
-    margin-bottom: 80px;
-    font-weight: normal;
+    line-height: 80px;
   }
 
   h1 {

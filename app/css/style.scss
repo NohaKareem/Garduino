@@ -49,6 +49,23 @@ body {
     text-decoration: none;
     color: $primaryColor;
   }
+  #welcome {
+    text-align: center;
+    color: $primaryColor;
+    margin-bottom: 80px;
+    line-height: 28px;
+    font-weight: normal;
+  }
+
+
+  h1 {
+    font-size: 25px;
+  }
+
+  h2 {
+    font-size: 18px;
+    word-spacing: 3px;
+  }
 
 #bmIcon{
   position: fixed;
@@ -213,14 +230,30 @@ body {
       list-style: none;
   
       div.button {
+        border-radius: 50%;
+        background-color: $secondaryColor;
+
         display: flex;
-        margin-bottom: 1px;
+        // margin-bottom: 5px;
+
       }
       
       ion-icon {
         color: $accentColor;
+        margin-top: 17px;
+        color: $accentColor;
       }
+
+      .button:hover {
+        background-color: $accentColor;
+        color: $secondaryColor;
+  
+        ion-icon {
+          color: $secondaryColor;
+        }
     }
+    
+  }
   }  
 
   #logo {
@@ -229,10 +262,7 @@ body {
   }
 
   #welcome {
-    text-align: center;
-    color: $primaryColor;
-    margin-bottom: 80px;
-    font-weight: normal;
+    line-height: 80px;
   }
 
   h1 {
