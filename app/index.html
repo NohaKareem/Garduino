@@ -10,16 +10,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"> 
 
     <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
-
-<<<<<<< HEAD
-        <link rel="stylesheet" href="./css/style.css">
-=======
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/ScrollToPlugin.min.js"></script>
-
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
 	<link rel="stylesheet" href="./css/style.css">
->>>>>>> 05a61f2a64a7d521e276a263b0e9e30c2eeb31a7
 </head>
 <body>
 <img src="images/logo/logoicon.png" alt="NURTURE" id="logo">
@@ -78,7 +70,6 @@
                 <div id="hydrometerCon" class="sensorCon">
                     <canvas id="humidityDoughnut"></canvas>
                     <h2 id="humidityCurrReading" class="sensorData"></h2>
-                
                 </div>
 
                 <div id="tempCon">
@@ -89,16 +80,15 @@
                     <canvas id="lightDoughnut"></canvas>
                     <h2 id="lightCurrReading" class="sensorData"></h2>
                 </div>
-<<<<<<< HEAD
             </div>
-=======
                 <canvas id="lightDoughnut"></canvas>
             </div>        
->>>>>>> 05a61f2a64a7d521e276a263b0e9e30c2eeb31a7
             <div id="historyData">
-                <canvas id="lineChart"></canvas>
+                <canvas id="temperatureLineChart"></canvas>
+                <canvas id="hydrometerLineChart"></canvas>
+                <canvas id="lightLineChart"></canvas>
             </div>
-   <!--          <div id="app">
+            <!-- <div id="app">
              <p class="temperature" v-on:click="toggleTemperature">{{temperature | temperatureUnit}} {{unit}}</p>
             </div>       -->
 
@@ -106,15 +96,15 @@
 
         <footer>
             <ul id="footerMenu">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Terms</a></li>
-                    <li><a href="#">Privacy</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy</a></li>
             </ul></div>
         </footer>
    
     </main>
 
-    <script>
+    <!-- <script>
         const { exec } = require('child_process');
 
         const child = exec('node app/js/main.js',
@@ -128,7 +118,8 @@
             child.stdout.on('data', (data) => {
             console.log(data.toString());
         });
-    </script>
+    </script> -->
+     <!-- <script src="https://unpkg.com/vue@2.3.4"></script>    -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
     <script src="js/gsap.min.js"></script>
     <script src="js/main.js"></script>

@@ -143,7 +143,6 @@ a {
 
 #doughnutChartsCon {
   display: grid;
-<<<<<<< HEAD
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -157,9 +156,6 @@ a {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-=======
-  grid-template-columns: repeat(3, minmax(0, 1));
 }
 
 #footerMenu {
@@ -228,4 +224,3 @@ a {
     word-spacing: 3px;
   }
 }
->>>>>>> 05a61f2a64a7d521e276a263b0e9e30c2eeb31a7
