@@ -105,8 +105,8 @@ function updateChartData(chart, updatedVals) {
         chart.update();
 }
 
-var humidityDoughnutChart = generateChart('pie', [50, 50], humidityDoughnut, color, color, "Moisture", 45);
-var lightDoughnutChart = generateChart('pie', [50, 50], lightDoughnut, color, color, "Light", false);
+var humidityDoughnutChart = generateChart('pie', [0, 50], humidityDoughnut, color, color, "Moisture", 45);
+var lightDoughnutChart = generateChart('pie', [0, 50], lightDoughnut, color, color, "Light", false);
 
 var hydroLineChartCon = generateChart('line', hydroData, hydrometerLineChart, "rgba(255, 255, 255, 0)", color[0], "Moisture", 45);
 var tempLineChartCon = generateChart('line', tempData, temperatureLineChart, "rgba(255, 255, 255, 0)", color[0], "Temperature", false);
@@ -140,10 +140,14 @@ breadboard.on("ready", function(){
             hydrometerCurrReading = this.scaleTo(100, 0);
             hydrometerCurrReadingCon.innerHTML = hydrometerCurrReading + "%";
             updateChartData(humidityDoughnutChart, [hydrometerCurrReading, 100 - hydrometerCurrReading]); 
+
+            humidityDoughnutChart = generateChart('pie', [hydrometerCurrReading, 100 - hydrometerCurrReading], humidityDoughnut, color, color, "Moisture", 45);
             
             // update line chart
             hydroData.push(hydrometerCurrReading);
             updateChartData(hydroLineChartCon, hydroData);
+            // hydroLineChartCon = generateChart('line', hydroData, hydrometerLineChart, "rgba(255, 255, 255, 0)", color[0], "Moisture", 45);
+
     });
 
     photoresistor.on("data", function(){
