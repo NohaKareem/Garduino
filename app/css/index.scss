@@ -7,6 +7,9 @@ $boxShadow: #c5c5c5;
 $desktopWidth: 768px;
 $transparencyValue: 0.6;
 
+.hidden {
+  display: none;
+}
 
 body {
     padding: 80px;
@@ -23,32 +26,119 @@ body {
     margin-left: 70px;
     margin-bottom: 20px;
 }
-  .button {
-    background-color: $accentColor;
+
+button {
+  text-align: center;
+}
+.button {
+  background-color: $accentColor;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: none;
+  border-radius: 50px; 
+  font-family: $montserratRegular;
+  color: $secondaryColor;
+  box-shadow: 2px 7px 3px -2px $boxShadow;
+}
+
+.button:hover {
+  /*indicate clickable link*/
+  cursor: pointer;
+  color: $accentColor;
+  background-color: $secondaryColor;
+}
+
+#main {
+  display: block;
+  margin: 0 auto;
+
+  #form {
     margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    border: none;
-    border-radius: 50px; 
-    font-family: $montserratRegular;
-    color: $secondaryColor;
-    box-shadow: 2px 7px 3px -2px $boxShadow;
   }
 
-  .button:hover {
-    /*indicate clickable link*/
-    cursor: pointer;
-    color: $accentColor;
-    background-color: $secondaryColor;
-  }
-  
-  
-  #main {
+  .input {
     display: block;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+    background-color: $secondaryColor;
+    color: $primaryColor;
+    border: none;
+    border-bottom: 1px transparentize($primaryColor, $transparencyValue) solid;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: $montserratRegular;
+  }
 
+  #loginButton {
+    margin: 0 auto;
+    margin-left: 90px;
+    margin-bottom: 20px;
+  }
+  .button {
+      font-size: 12px;
+  }
+}
+
+#cont {
+    margin: 0 auto;
+    margin-right: 200px;
+}
+
+#footerMenu {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  margin-top: 120px;
+  margin-bottom: -80px;
+  margin-left: -30px;
+  
+  li {
+    margin: 20px;
+  }
+  a {
+      color: $primaryColor;
+    }
+}
+
+h2 {
+  font-weight: bold; 
+  font-size: 22px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: normal;
+}
+
+h3 {
+    text-align: center;
+}
+
+
+@media screen and (min-width: $desktopWidth) {
+
+  h2 {
+    font-size: 80px;
+    margin-bottom: 40px;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+
+  #logo {
+      // align-self: center;
+      margin-left: 475px;
+      margin-bottom: 20px;
+  }
+
+  #main {
+    margin: 0 auto;
+    
     #form {
       margin-top: 20px;
     }
@@ -57,7 +147,7 @@ body {
       display: block;
       margin-left: auto;
       margin-right: auto;
-      padding-bottom: 10px;
+      padding-bottom: 20px;
       background-color: $secondaryColor;
       color: $primaryColor;
       border: none;
@@ -65,103 +155,20 @@ body {
       margin-bottom: 15px;
       text-align: center;
       font-family: $montserratRegular;
+      font-size: 18px;
     }
   
     #loginButton {
-      margin: 0 auto;
-      margin-left: 90px;
-      margin-bottom: 20px;
-    }
-    .button {
-        font-size: 12px;
-    }
-
-  }
-
-  #cont {
-      margin: 0 auto;
-      margin-right: 200px;
-  }
-  
-#footerMenu {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    font-size: 12px;
-    margin-top: 120px;
-    margin-bottom: -80px;
-    margin-left: -30px;
-    
-    li {
-      margin: 20px;
-    }
-    a {
-        color: $primaryColor;
-      }
-  }
-  h2 {
-    font-weight: bold; 
-    font-size: 22px;
-    margin-bottom: 40px;
-    margin-top: 20px;
-    text-align: center;
-    font-weight: normal;
-  }
-
-  h3 {
-      text-align: center;
-  }
-
-
-  @media screen and (min-width: $desktopWidth) {
-
-   h2 {
-      font-size: 80px;
-      margin-bottom: 40px;
-    }
-
-    h3 {
-font-size: 15px;
-    }
-
-    #logo {
-        // align-self: center;
+        margin-top: 50px;
         margin-left: 475px;
-        margin-bottom: 20px;
     }
 
-    #main {
-  
-        #form {
-          margin-top: 20px;
-        }
-      
-        .input {
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          padding-bottom: 20px;
-          background-color: $secondaryColor;
-          color: $primaryColor;
-          border: none;
-          border-bottom: 1px transparentize($primaryColor, $transparencyValue) solid;
-          margin-bottom: 15px;
-          text-align: center;
-          font-family: $montserratRegular;
-          font-size: 18px;
-        }
-      
-        #loginButton {
-            margin-top: 50px;
-            margin-left: 475px;
-        }
-
-        .button {
-            font-size: 20px;
-        }
+    .button {
+        font-size: 20px;
     }
-  
-    #footerMenu {
-        font-size: 15px;
-      }
   }
+
+  #footerMenu {
+      font-size: 15px;
+    }
+}

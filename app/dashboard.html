@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nurture</title>
+    <title>Nurture dashboard</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width"> 
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
@@ -26,8 +26,9 @@
         <img src="images/logo/logoicon.png" alt="NURTURE" id="logo">
     </div>
     <main id="container">
+        <h1 class="hidden">Nurture plant monitoring dashboard</h1>
         <section id="navigation">
-            <h1 class="hidden">Intro section</h1>
+            <h2 class="hidden">Intro section</h2>
             <nav id="burgerMenu" class="hidden">
                 <h2 class="hidden">Burger Menu</h2>
                     <ul id="burgerMenuList">
@@ -55,20 +56,20 @@
                         </a></li>
                     <li><a href="#"><div class="button"><ion-icon name="leaf" size="large"></ion-icon></div>
                         </a></li>
-                    <li><a href="#"><div class="button"></div><ion-icon name="settings" size="large"></ion-icon></div>
+                    <li><a href="#"><div class="button"></div><ion-icon name="settings" size="large"></ion-icon>
                         </a></li>
-                    <li><a href="#"><div class="button"></div><ion-icon name="help" size="large"></ion-icon></div>
+                    <li><a href="#"><div class="button"></div><ion-icon name="help" size="large"></ion-icon>
                         </a></li>
-                    <li><a href="#"><div class="button"></div><ion-icon name="log-out" size="large"></ion-icon></div>
+                    <li><a href="#"><div class="button"></div><ion-icon name="log-out" size="large"></ion-icon>
                         </a></li>
                 </ul>
             </nav>
         </section>
 
         <section id="contianer2">
-            <h1 class="hidden">Dashboard</h1>
+            <h2 class="hidden">Dashboard</h2>
             <div id="welcome">
-                <h1>Hey Ria!</h1>
+                <h2 id="personalized">Hey Ria!</h2>
                 <h2>Your cactus Greeny is looking good!</h2>
             </div>
 
@@ -76,20 +77,18 @@
             <div id="doughnutChartsCon">
                 <div id="hydrometerCon" class="sensorCon">
                     <canvas id="humidityDoughnut"></canvas>
-                    <h2 id="humidityCurrReading" class="sensorData"></h2>
+                    <p id="humidityCurrReading" class="sensorData"></p>
                 </div>
 
                 <div id="tempCon" class="sensorCon">
-                  <h2 id="temperatureCurrReading" class="sensorData"></h2>
+                  <p id="temperatureCurrReading" class="sensorData"></p>
                 </div>
                 
                 <div id="lightCon" class="sensorCon">
                     <canvas id="lightDoughnut"></canvas>
-                    <h2 id="lightCurrReading" class="sensorData"></h2>
+                    <p id="lightCurrReading" class="sensorData"></p>
                 </div>
             </div>
-                <canvas id="lightDoughnut"></canvas>
-            </div>    
 
             <!-- scroll down for history -->
             <div id="scrollDownCon">
@@ -111,12 +110,12 @@
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Terms</a></li>
                 <li><a href="#">Privacy</a></li>
-            </ul></div>
+            </ul>
         </footer>
     </main>
 
-     <!-- <script src="https://unpkg.com/vue@2.3.4"></script>    -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+     <!-- <script src="https://unpkg.com/vue@2.3.4"></script>  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
     <script src="js/ScrollToPlugin.min.js"></script>
     <script src="js/gsap.min.js"></script>
     <script src="js/main.js"></script>

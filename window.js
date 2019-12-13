@@ -19,7 +19,7 @@ app.on('ready', () => {
       height: 800,
       width: 1200,
       resizable: true,
-      // fullscreen: true,
+      fullscreen: true,
       title: 'j5/electron template',
       frame: false,
         webPreferences: {
