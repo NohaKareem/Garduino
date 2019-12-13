@@ -145,7 +145,20 @@ body {
 
 #doughnutChartsCon {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sensorCon {
+  position: relative;
+}
+
+.sensorData {
+  /*chart text centering https://jsfiddle.net/mgyp0jkk/ */
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
 }
 
 #footerMenu {

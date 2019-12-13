@@ -19,6 +19,7 @@ app.on('ready', () => {
       height: 800,
       width: 1200,
       resizable: true,
+      // fullscreen: true,
       title: 'j5/electron template',
       frame: false,
         webPreferences: {
@@ -57,3 +58,20 @@ app.on('activate', function () {
     createWindow()
   }
 })
+
+
+
+// testing
+const { exec } = require('child_process');
+const child = exec('node app/main.js',
+  (error, stdout, stderr) => {
+    console.log(`stdout: ${stdout}`);
+    console.log(`stderr: ${stderr}`);
+    if (error !== null) {
+      console.log(`exec error: ${error}`);
+    }
+  });
+child.stdout.on('data', (data) => {
+  console.log(data.toString());
+}); 
+// end of testing
