@@ -144,23 +144,6 @@ lightCurrReadingCon.innerHTML = "55%";
             //     });
             // });
 
-// burger menu
-var bmIcon = document.querySelector("#bmIcon");
-var burgerMenuList = document.querySelector("#burgerMenu");
-var mblNavLinks = document.querySelectorAll("#burgerMenuList li a");
-
-function burgerMenu(e) {
-	burgerMenuList.classList.toggle("hidden");
-	bmIcon.classList.toggle("menuExpanded");
-}
-
-bmIcon.addEventListener("click", burgerMenu, false);
-
-// for (var i = 0; i < mblNavLinks.length; i++) {
-// 	mblNavLinks[i].addEventListener("click", smoothScroll, false);
-// 	dsktpNavLinks[i].addEventListener("click", smoothScroll, false);
-// }
-
 // // vue
 // var vm = new Vue({ 
 //     el: "#app", 
@@ -190,10 +173,14 @@ bmIcon.addEventListener("click", burgerMenu, false);
 (function () {
 	"use strict";
 
-var bmIcon = document.querySelector("#bmIcon");
-var burgerMenuList = document.querySelector("#burgerMenu");
-var mblNavLinks = document.querySelectorAll("#burgerMenuList li a");
+    var bmIcon = document.querySelector("#bmIcon");
+    var burgerMenuList = document.querySelector("#burgerMenu");
+    var mblNavLinks = document.querySelectorAll("#burgerMenuList li a");
 
+    function burgerMenu(e) {
+        burgerMenuList.classList.toggle("hidden");
+        bmIcon.classList.toggle("menuExpanded");
+    }
 
 function burgerMenu(e) {
 	burgerMenuList.classList.toggle("hidden");
@@ -212,4 +199,10 @@ bmIcon.addEventListener("click", burgerMenu, false);
 for (var i = 0; i < mblNavLinks.length; i++) {
 	mblNavLinks[i].addEventListener("click", smoothScroll, false);
 }
+    bmIcon.addEventListener("click", burgerMenu, false);
+
+    for (var i = 0; i < mblNavLinks.length; i++) {
+        mblNavLinks[i].addEventListener("click", smoothScroll, false);
+        dsktpNavLinks[i].addEventListener("click", smoothScroll, false);
+    }
 })();
