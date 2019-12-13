@@ -186,7 +186,6 @@ bmIcon.addEventListener("click", burgerMenu, false);
 //         }
 //     }
 // });
-<<<<<<< HEAD
 
 (function () {
 	"use strict";
@@ -201,12 +200,16 @@ function burgerMenu(e) {
 	bmIcon.classList.toggle("menuExpanded");
 }
 
+
+function smoothScroll(e) {
+	e.preventDefault();
+	var href = e.currentTarget.dataset.url;
+	TweenLite.to(window, 1, { scrollTo: { y: "#" + href, offsetY: 3, autoKill: false } });
+}
+
 bmIcon.addEventListener("click", burgerMenu, false);
 
 for (var i = 0; i < mblNavLinks.length; i++) {
 	mblNavLinks[i].addEventListener("click", smoothScroll, false);
-	dsktpNavLinks[i].addEventListener("click", smoothScroll, false);
 }
 })();
-=======
->>>>>>> e1ba6248f5573e2ff092339ca6ac9d55a57ab7d6
