@@ -17,30 +17,32 @@
 	<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<img src="images/logo/logoicon.png" alt="NURTURE" id="logo">
-    <a href="#" id="bmIcon">
-		<ion-icon name="menu"></ion-icon>
-	</a>
+    <div id="topmenu">
+        <a href="#" id="bmIcon">
+        <ion-icon name="menu" size="large"></ion-icon>
+        </a>
+        <img src="images/logo/logoicon.png" alt="NURTURE" id="logo">
+    </div>
     <main id="container">
         <section id="navigation">
             <h1 class="hidden">Intro section</h1>
             <nav id="burgerMenu" class="hidden">
                 <h2 class="hidden">Burger Menu</h2>
                     <ul id="burgerMenuList">
-                        <li><ion-icon name="home"></ion-icon>
-                            <a href="#">Home</a></li>
+                        <li><a href="#"><ion-icon name="home"></ion-icon>
+                            Home</a></li>
 
-                        <li><ion-icon name="leaf"></ion-icon>
-                            <a href="#">My Plants</a></li>
+                        <li><a href="#"><ion-icon name="leaf"></ion-icon>
+                            My Plants</a></li>
                         
-                        <li><ion-icon name="settings"></ion-icon>
-                            <a href="#">Settings</a></li>
+                        <li><a href="#"><ion-icon name="settings"></ion-icon>
+                            Settings</a></li>
 
-                        <li><ion-icon name="help"></ion-icon>
-                            <a href="#">Help</a></li>
+                        <li><a href="#"><ion-icon name="help"></ion-icon>
+                            Help</a></li>
 
-                        <li><ion-icon name="log-out"></ion-icon>
-                            <a href="#">Help</a></li>
+                        <li><a href="#"><ion-icon name="log-out"></ion-icon>
+                            Help</a></li>
                     </ul>
             </nav>
 
@@ -65,9 +67,7 @@
             <h1 class="hidden">Dashboard</h1>
             <div id="welcome">
                 <h1>Hey Ria!</h1>
-                <h2>Your cactus Greeny is looking sad!
-                    <br>It could use a little light!
-                </h2>
+                <h2>Your cactus Greeny is looking good!</h2>
             </div>
             <div id="doughnutChartsCon">
                 <canvas id="humidityDoughnut"></canvas>

@@ -15,29 +15,23 @@ body {
   background-position: right;
 }
 
+#header {
+  display: flex;
+  flex-direction: row;
+}
+
 a {
-  color: #24343b;
   text-decoration: none;
-}
-
-#navigation li {
-  list-style: none;
-  text-align: left;
-}
-
-#nativation ul {
-  text-align: left;
-  list-style: none;
+  color: #24343b;
 }
 
 #bmIcon {
   position: fixed;
-  font-size: 20px;
+  font-size: 27px;
   color: #d49b29;
   top: 5px;
-  text-shadow: 2px 7px 3px #f8f8f8;
   z-index: 6;
-  margin-left: 10px;
+  margin-left: -10px;
   padding-bottom: 20px;
   /*css animation on click*/
   transition: all 150ms ease-in-out;
@@ -54,6 +48,7 @@ a {
 
 #burgerMenu {
   margin-right: auto;
+  /*menu icons*/
 }
 #burgerMenu ul {
   margin-top: 5px;
@@ -65,6 +60,7 @@ a {
   border-top: 1px solid rgba(36, 52, 59, 0.4);
 }
 #burgerMenu #burgerMenuList a {
+  background-color: #f8f8f8;
   display: block;
   color: #d49b29;
   text-decoration: none;
@@ -79,15 +75,21 @@ a {
   background-color: #d49b29;
   color: #f8f8f8;
 }
-
-/*menu icons*/
-ion-icon {
+#burgerMenu ion-icon {
   color: #d49b29;
   font-size: 20px;
+  margin-left: 40px;
+  margin-right: 10px;
 }
 
-img {
-  border-radius: 50%;
+#topmenu {
+  display: flex;
+  flex-direction: row;
+}
+
+#menu {
+  visibility: hidden;
+  height: 0px;
 }
 
 #dashboard {
@@ -108,7 +110,7 @@ img {
   list-style: none;
   display: flex;
   flex-direction: row;
-  font-size: 15px;
+  font-size: 12px;
   margin-bottom: -80px;
   margin-left: -30px;
 }
@@ -132,6 +134,7 @@ img {
     grid-template-rows: repeat(4, minmax(0, 1fr));
     grid-gap: 50px;
     margin-left: -50px;
+    list-style: none;
   }
   #menu ul div.button {
     display: flex;
@@ -161,6 +164,10 @@ img {
   h2 {
     font-size: 20px;
     word-spacing: 3px;
+  }
+
+  #footerMenu {
+    font-size: 18px;
   }
 }
 

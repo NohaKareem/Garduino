@@ -69,6 +69,9 @@ breadboard.on("ready", function(){
 //     }
 // });
 
+(function () {
+	"use strict";
+
 var bmIcon = document.querySelector("#bmIcon");
 var burgerMenuList = document.querySelector("#burgerMenu");
 var mblNavLinks = document.querySelectorAll("#burgerMenuList li a");
@@ -85,3 +88,4 @@ for (var i = 0; i < mblNavLinks.length; i++) {
 	mblNavLinks[i].addEventListener("click", smoothScroll, false);
 	dsktpNavLinks[i].addEventListener("click", smoothScroll, false);
 }
+})();

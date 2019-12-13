@@ -3,6 +3,9 @@ $montserratRegular: 'Montserrat', sans-serif;
 $primaryColor: #24343b;
 $secondaryColor: #f8f8f8;
 $accentColor: #d49b29;
+$boxShadow: #c5c5c5;
+$desktopHeaderTextSize: 18px;
+
 $transparencyValue: 0.6;
 
 $desktopWidth: 768px;
@@ -29,49 +32,34 @@ $desktopWidth: 768px;
 body {
     padding: 80px;
     /*margin-top: 20%;*/
-    font-family: 'Montserrat', sans-serif;
+    font-family: $montserratRegular;
     background-color: #f6f6f6;
     background-image: url("../images/plantbg.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: right;
   }
-  
-a {
-  color: $primaryColor;
-  text-decoration: none;
-}
- 
-// #container {
-//   // margin-top: -20%;
-// }
 
-// #burgerMenu{
-//    margin-right: auto;
-//   //  background-color: red;
-// }
-
- #navigation li {
-    list-style: none;
-    text-align: left;
-    // margin-left: -40%;
-
+  #header {
+    display: flex;
+    flex-direction: row;
   }
 
- #nativation ul{
-    text-align: left;
-    list-style: none;
- } 
+  a {
+    text-decoration: none;
+    color: $primaryColor;
+  }
 
 #bmIcon{
   position: fixed;
-  font-size: 20px;
+  font-size: $desktopHeaderTextSize * 1.5;
+  // font-size: 20px;
   color: #d49b29;
   top: 5px;
-  text-shadow: 2px 7px 3px $secondaryColor; 
+  // text-shadow: 2px 7px 3px $secondaryColor; 
 
   z-index: 6;
-  margin-left: 10px;
+  margin-left: -10px;
   padding-bottom: 20px;
   
   /*css animation on click*/
@@ -102,7 +90,7 @@ a {
 
   #burgerMenuList {
     a {
-      // background-color: $secondaryColor;
+      background-color: $secondaryColor;
       display: block;
       color: $accentColor;
       text-decoration: none;
@@ -120,18 +108,32 @@ a {
       }
     }
   }
-}
-  
+
   /*menu icons*/
   ion-icon {
     color: #d49b29;
     font-size: 20px;
+    margin-left: 40px;
+    margin-right: 10px;
   }
+}
 
+#topmenu {
+  display: flex;
+  flex-direction: row;
+}
 
-  img {
-    border-radius: 50%;
-  }
+#menu {
+  visibility: hidden;
+  height: 0px; 
+}
+
+// #logo {
+//   margin-right: 20px;
+//   margin-left: 300px;
+//   margin-top: -30px;
+// }
+
 #dashboard {
     display: flex;
     flex-direction: row;
@@ -150,7 +152,7 @@ a {
   list-style: none;
   display: flex;
   flex-direction: row;
-  font-size: 15px;
+  font-size: 12px;
   margin-bottom: -80px;
   margin-left: -30px;
   
@@ -177,6 +179,8 @@ a {
       grid-template-rows: repeat(4, minmax(0, 1fr));
       grid-gap: 50px;
       margin-left: -50px;
+
+      list-style: none;
   
       div.button {
         display: flex;
@@ -210,5 +214,9 @@ a {
   h2 {
     font-size: 20px;
     word-spacing: 3px;
+  }
+
+  #footerMenu {
+    font-size: 18px;
   }
 }
