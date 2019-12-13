@@ -1,0 +1,146 @@
+body {
+  padding: 80px;
+  font-family: "Montserrat", sans-serif;
+  background-color: #f6f6f6;
+}
+
+a {
+  text-decoration: none;
+  color: #d49b29;
+}
+
+#logo {
+  margin-left: 70px;
+  margin-bottom: 20px;
+}
+
+.button {
+  background-color: #d49b29;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: none;
+  border-radius: 50px;
+  font-family: "Montserrat", sans-serif;
+  color: #f8f8f8;
+  box-shadow: 2px 7px 3px -2px #c5c5c5;
+}
+
+.button:hover {
+  /*indicate clickable link*/
+  cursor: pointer;
+  color: #d49b29;
+  background-color: #f8f8f8;
+}
+
+#main {
+  display: block;
+  margin: 0 auto;
+}
+#main #form {
+  margin-top: 20px;
+}
+#main .input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+  background-color: #f8f8f8;
+  color: #24343b;
+  border: none;
+  border-bottom: 1px rgba(36, 52, 59, 0.4) solid;
+  margin-bottom: 15px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+#main #loginButton {
+  margin: 0 auto;
+  margin-left: 90px;
+  margin-bottom: 20px;
+}
+#main .button {
+  font-size: 12px;
+}
+
+#cont {
+  margin: 0 auto;
+  margin-right: 200px;
+}
+
+#footerMenu {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  margin-top: 120px;
+  margin-bottom: -80px;
+  margin-left: -30px;
+}
+#footerMenu li {
+  margin: 20px;
+}
+#footerMenu a {
+  color: #24343b;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: normal;
+}
+
+h3 {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  h2 {
+    font-size: 80px;
+    margin-bottom: 40px;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+
+  #logo {
+    margin-left: 475px;
+    margin-bottom: 20px;
+  }
+
+  #main #form {
+    margin-top: 20px;
+  }
+  #main .input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+    background-color: #f8f8f8;
+    color: #24343b;
+    border: none;
+    border-bottom: 1px rgba(36, 52, 59, 0.4) solid;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+  }
+  #main #loginButton {
+    margin-top: 50px;
+    margin-left: 475px;
+  }
+  #main .button {
+    font-size: 20px;
+  }
+
+  #footerMenu {
+    font-size: 15px;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
