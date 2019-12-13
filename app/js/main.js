@@ -7,25 +7,25 @@
 //stdin , short for “standard in”, is the path by which we can pass data into an application. 
 //This is usually text data that the user has typed, but it can also come from another application.
 
-        // var Readable = require("stream").Readable;  
-        // var util = require("util");  
-        // util.inherits(MyStream, Readable);  
-        // function MyStream(opt) {  
-        // Readable.call(this, opt);
-        // }
-        // MyStream.prototype._read = function() {};  
-        // // hook in our stream
-        // process.__defineGetter__("stdin", function() {  
-        // if (process.__stdin) return process.__stdin;
-        // process.__stdin = new MyStream();
-        // return process.__stdin;
-        // });
+var Readable = require("stream").Readable;  
+var util = require("util");  
+util.inherits(MyStream, Readable);  
+function MyStream(opt) {  
+    Readable.call(this, opt);
+}
+MyStream.prototype._read = function() {};  
+// hook in our stream
+process.__defineGetter__("stdin", function() {  
+if (process.__stdin) return process.__stdin;
+process.__stdin = new MyStream();
+return process.__stdin;
+});
 
 // johnny-five
-        // var johnnyFive = require("johnny-five");                
-        // var breadboard = new johnnyFive.Board({
-        //         repl: false                
-        // });
+var johnnyFive = require("johnny-five");                
+var breadboard = new johnnyFive.Board({
+    repl: false                
+});
 
 var humidityDoughnut = document.querySelector("#humidityDoughnut"),  
         lightDoughnut = document.querySelector("#lightDoughnut");
@@ -118,77 +118,53 @@ hydrometerCurrReadingCon.innerHTML = "50%";
 lightCurrReadingCon.innerHTML = "50%";
 // end of placeholder data 
 
-            // breadboard.on("ready", function(){                
-            //     var hydrometer = new johnnyFive.Sensor({
-            //                 pin: "A0",
-            //                 freq: 250,
-            //                 threshold: 2
-            //         }), 
-            //         photoresistor = new johnnyFive.Sensor({
-            //         pin: "A4", 
-            //         freq: 250
-            //     }), 
-            //         temperatureSensor = new johnnyFive.Thermometer({
-            //         controller: "LM35", 
-            //         pin: "A2"
-            //     });         
+// start of johnny-five
+breadboard.on("ready", function(){                
+    var hydrometer = new johnnyFive.Sensor({
+                pin: "A0",
+                freq: 250,
+                threshold: 2
+        }), 
+        photoresistor = new johnnyFive.Sensor({
+        pin: "A4", 
+        freq: 250
+    }), 
+        temperatureSensor = new johnnyFive.Thermometer({
+        controller: "LM35", 
+        pin: "A2"
+    });         
 
-            //     // update html data reading display and chart  
-            //     hydrometer.on("change", function(){
-            //             // mapping values to 100% using johnny-five API 
-            //             hydrometerCurrReading = this.scaleTo(100, 0);
-            //             hydrometerCurrReadingCon.innerHTML = hydrometerCurrReading + "%";
-            //             updateChartData(humidityDoughnutChart, [hydrometerCurrReading, 100 - hydrometerCurrReading]); 
-                        
-            //             // update line chart
-            //             hydroData.push(hydrometerCurrReading);
-            //             updateChartData(hydroLineChartCon, hydroData);
-            //     });
+    // update html data reading display and chart  
+    hydrometer.on("change", function(){
+            // mapping values to 100% using johnny-five API 
+            hydrometerCurrReading = this.scaleTo(100, 0);
+            hydrometerCurrReadingCon.innerHTML = hydrometerCurrReading + "%";
+            updateChartData(humidityDoughnutChart, [hydrometerCurrReading, 100 - hydrometerCurrReading]); 
+            
+            // update line chart
+            hydroData.push(hydrometerCurrReading);
+            updateChartData(hydroLineChartCon, hydroData);
+    });
 
-            //     photoresistor.on("data", function(){
-            //             lightCurrReading = this.scaleTo(100, 0);
-            //             lightCurrReadingCon.innerHTML = lightCurrReading + "%";
-            //             updateChartData(lightDoughnutChart, [lightCurrReading, 100 - lightCurrReading]); 
+    photoresistor.on("data", function(){
+            lightCurrReading = this.scaleTo(100, 0);
+            lightCurrReadingCon.innerHTML = lightCurrReading + "%";
+            updateChartData(lightDoughnutChart, [lightCurrReading, 100 - lightCurrReading]); 
 
-            //             // update line chart
-            //             lightData.push(lightCurrReading);
-            //             updateChartData(lightLineChartCon, lightData);
-            //     });
+            // update line chart
+            lightData.push(lightCurrReading);
+            updateChartData(lightLineChartCon, lightData);
+    });
 
-            //     temperatureSensor.on("change", function(){
-            //         temperatureCurrReadingCon.innerHTML = this.celsius + "°C";
+    temperatureSensor.on("change", function(){
+        temperatureCurrReadingCon.innerHTML = this.celsius + "°C";
 
-            //         // update line chart
-            //         tempData.push(temperatureCurrReading);
-            //         updateChartData(tempLineChartCon, tempData);
-            //     });
-            // });
-
-// // vue
-// var vm = new Vue({ 
-//     el: "#app", 
-//     data: {
-//         unit: "C",
-//         isCelcius: true, 
-//         temperature: 20 // placeholder temp
-//     }, 
-//     filters: {
-//         temperatureUnit(value) {
-//             return `${value}°`;
-//         }
-//     },
-//     methods: {
-//         toggleTemperature: function() {
-//             // toggle unit
-//             this.isCelcius =! this.isCelcius;
-//             this.unit = this.isCelcius ? "C" : "F";
-
-//             // change temperature
-//             this.temperature = this.isCelcius ? (this.temperature - 32) * 5/9 : (this.temperature * 9/5) + 32;
-//             return this.temperature;
-//         }
-//     }
-// });
+        // update line chart
+        tempData.push(temperatureCurrReading);
+        updateChartData(tempLineChartCon, tempData);
+    });
+});
+// end of johnny-five
 
 (function () {
 	"use strict";
@@ -219,3 +195,29 @@ lightCurrReadingCon.innerHTML = "50%";
         mblNavLinks[i].addEventListener("click", preventLinkDefault, false);
     }
 })();
+
+// // vue
+// var vm = new Vue({ 
+//     el: "#app", 
+//     data: {
+//         unit: "C",
+//         isCelcius: true, 
+//         temperature: 20 // placeholder temp
+//     }, 
+//     filters: {
+//         temperatureUnit(value) {
+//             return `${value}°`;
+//         }
+//     },
+//     methods: {
+//         toggleTemperature: function() {
+//             // toggle unit
+//             this.isCelcius =! this.isCelcius;
+//             this.unit = this.isCelcius ? "C" : "F";
+
+//             // change temperature
+//             this.temperature = this.isCelcius ? (this.temperature - 32) * 5/9 : (this.temperature * 9/5) + 32;
+//             return this.temperature;
+//         }
+//     }
+// });
