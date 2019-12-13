@@ -42,23 +42,32 @@ var hydrometerCurrReading = 0, temperatureCurrReading = 0, lightCurrReading = 0;
 
 // placeholder line chart data ~
 var tempData = [20,40,10,20,5,10,23], tempLabels = ["Dec-1","Dec-2","Dec-3","Dec-4","Dec-5","Dec-6","Dec-7"];
-var backgroundColor = ["#24343b", "#f8f8f8"];
+var hydroData = [20,40,10,20,5,10,23], hydroLabels = tempLabels;
+var lightData = [20,40,10,20,5,10,23], lightLabels = tempLabels;
+
+
+var color = ["#24343b", "#f8f8f8"], 
+    warningColor = ["#d49b29", "#f8f8f8"];
 
 // start line chart at zero and remove legend 
-// Chart.defaults.scale.ticks.beginAtZero = true;
+// Chart.defaults.scale.ticks.beginAtZero = true; // handy if using live data
 Chart.defaults.global.legend.display = false;
 
 // generate line/doughnut chart and return chart object
-function generateChart(chartType, dataVal, chartDOM, backgroundColor, borderColor, title){
+function generateChart(chartType, dataVal, chartDOM, backgroundColor, borderColor, title, threshold){
+    // saving latest reading from doughnut/line chart
+    var latestReading = dataVal.length === 2 ? dataVal[0] : dataVal[dataVal.length - 1];
     return new Chart(chartDOM, {
         type: chartType, 
             data: {
-                // labels: labels, //~
+                // labels: labels, 
                 datasets: [
                 { 
                     data: dataVal,
-                    backgroundColor: backgroundColor, 
-                    borderColor: borderColor, 
+
+                    // add warning color if a threshold is set. color only set to border in case of line chart
+                    backgroundColor: latestReading <= threshold || !threshold ? backgroundColor : (chartType !== 'line' ? warningColor : backgroundColor), 
+                    borderColor:  latestReading <= threshold || !threshold ? borderColor : warningColor, 
                 }
             ]    
         }, options: {
@@ -96,19 +105,18 @@ function updateChartData(chart, updatedVals) {
         chart.update();
 }
 
-var humidityDoughnutChart = generateChart('pie', [50, 50], humidityDoughnut, backgroundColor, backgroundColor, "Moisture");
-var lightDoughnutChart = generateChart('pie', [50, 50], lightDoughnut, backgroundColor, backgroundColor, "Light");
+var humidityDoughnutChart = generateChart('pie', [50, 50], humidityDoughnut, color, color, "Moisture", 45);
+var lightDoughnutChart = generateChart('pie', [50, 50], lightDoughnut, color, color, "Light", false);
 
-var hydroLineChartCon = generateChart('line', tempData, hydrometerLineChart, "rgba(255, 255, 255, 0)", backgroundColor[0], "Moisture");
-var tempLineChartCon = generateChart('line', tempData, temperatureLineChart, "rgba(255, 255, 255, 0)", backgroundColor[0], "Temperature");
-var lightLineChartCon = generateChart('line', tempData, lightLineChart, "rgba(255, 255, 255, 0)", backgroundColor[0], "Light");
+var hydroLineChartCon = generateChart('line', hydroData, hydrometerLineChart, "rgba(255, 255, 255, 0)", color[0], "Moisture", 45);
+var tempLineChartCon = generateChart('line', tempData, temperatureLineChart, "rgba(255, 255, 255, 0)", color[0], "Temperature", false);
+var lightLineChartCon = generateChart('line', lightData, lightLineChart, "rgba(255, 255, 255, 0)", color[0], "Light", false);
 
-
-// placeholder data ~~
+// placeholder data ~
 temperatureCurrReadingCon.innerHTML = "21°C";
-hydrometerCurrReadingCon.innerHTML = "5%";
-lightCurrReadingCon.innerHTML = "55%";
-// placeholder data ~~
+hydrometerCurrReadingCon.innerHTML = "50%";
+lightCurrReadingCon.innerHTML = "50%";
+// end of placeholder data 
 
             // breadboard.on("ready", function(){                
             //     var hydrometer = new johnnyFive.Sensor({
@@ -131,16 +139,28 @@ lightCurrReadingCon.innerHTML = "55%";
             //             hydrometerCurrReading = this.scaleTo(100, 0);
             //             hydrometerCurrReadingCon.innerHTML = hydrometerCurrReading + "%";
             //             updateChartData(humidityDoughnutChart, [hydrometerCurrReading, 100 - hydrometerCurrReading]); 
+                        
+            //             // update line chart
+            //             hydroData.push(hydrometerCurrReading);
+            //             updateChartData(hydroLineChartCon, hydroData);
             //     });
 
             //     photoresistor.on("data", function(){
             //             lightCurrReading = this.scaleTo(100, 0);
             //             lightCurrReadingCon.innerHTML = lightCurrReading + "%";
             //             updateChartData(lightDoughnutChart, [lightCurrReading, 100 - lightCurrReading]); 
+
+            //             // update line chart
+            //             lightData.push(lightCurrReading);
+            //             updateChartData(lightLineChartCon, lightData);
             //     });
 
             //     temperatureSensor.on("change", function(){
             //         temperatureCurrReadingCon.innerHTML = this.celsius + "°C";
+
+            //         // update line chart
+            //         tempData.push(temperatureCurrReading);
+            //         updateChartData(tempLineChartCon, tempData);
             //     });
             // });
 
