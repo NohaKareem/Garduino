@@ -213,14 +213,30 @@ body {
       list-style: none;
   
       div.button {
+        border-radius: 50%;
+        background-color: $secondaryColor;
+
         display: flex;
-        margin-bottom: 1px;
+        // margin-bottom: 5px;
+
       }
       
       ion-icon {
         color: $accentColor;
+        margin-top: 17px;
+        color: $accentColor;
       }
+
+      .button:hover {
+        background-color: $accentColor;
+        color: $secondaryColor;
+  
+        ion-icon {
+          color: $secondaryColor;
+        }
     }
+    
+  }
   }  
 
   #logo {

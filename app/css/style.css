@@ -167,11 +167,21 @@ h2 {
     list-style: none;
   }
   #menu ul div.button {
+    border-radius: 50%;
+    background-color: #f8f8f8;
     display: flex;
-    margin-bottom: 1px;
   }
   #menu ul ion-icon {
     color: #d49b29;
+    margin-top: 17px;
+    color: #d49b29;
+  }
+  #menu ul .button:hover {
+    background-color: #d49b29;
+    color: #f8f8f8;
+  }
+  #menu ul .button:hover ion-icon {
+    color: #f8f8f8;
   }
 
   #logo {
