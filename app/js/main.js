@@ -40,7 +40,7 @@ var hydrometerCurrReadingCon = document.querySelector("#humidityCurrReading"),
 
 var hydrometerCurrReading = 0, temperatureCurrReading = 0, lightCurrReading = 0;
 
-// placeholder line chart data ~
+// placeholder line chart data
 var tempData = [20,40,10,20,5,10,23], tempLabels = ["Dec-1","Dec-2","Dec-3","Dec-4","Dec-5","Dec-6","Dec-7"];
 var hydroData = [20,40,10,20,5,10,23], hydroLabels = tempLabels;
 var lightData = [20,40,10,20,5,10,23], lightLabels = tempLabels;
@@ -112,7 +112,7 @@ var hydroLineChartCon = generateChart('line', hydroData, hydrometerLineChart, "r
 var tempLineChartCon = generateChart('line', tempData, temperatureLineChart, "rgba(255, 255, 255, 0)", color[0], "Temperature", false);
 var lightLineChartCon = generateChart('line', lightData, lightLineChart, "rgba(255, 255, 255, 0)", color[0], "Light", false);
 
-// placeholder data ~
+// placeholder data 
 temperatureCurrReadingCon.innerHTML = "21°C";
 hydrometerCurrReadingCon.innerHTML = "50%";
 lightCurrReadingCon.innerHTML = "50%";
@@ -196,6 +196,7 @@ lightCurrReadingCon.innerHTML = "50%";
     var bmIcon = document.querySelector("#bmIcon");
     var burgerMenuList = document.querySelector("#burgerMenu");
     var mblNavLinks = document.querySelectorAll("#burgerMenuList li a");
+    var scrollDownCon = document.querySelectorAll("#scrollDownCon");
 
     function burgerMenu(e) {
         burgerMenuList.classList.toggle("hidden");
@@ -205,12 +206,13 @@ lightCurrReadingCon.innerHTML = "50%";
     function preventLinkDefault(e) {
         e.preventDefault();
     }
-    function smoothScroll(e) {
+    function scrollToHistory(e) {
+        console.log("scrolltohistory")
         e.preventDefault();
-        var href = e.currentTarget.dataset.url;
-        TweenLite.to(window, 1, { scrollTo: { y: "#" + href, offsetY: 3, autoKill: false } });
+        TweenLite.to(window, 1, { scrollTo: { y: "#historyData", offsetY: 3, autoKill: false } });
     }
 
+    scrollDownCon.addEventListener("click", scrollToHistory, false);
     bmIcon.addEventListener("click", burgerMenu, false);
 
     for (var i = 0; i < mblNavLinks.length; i++) {
