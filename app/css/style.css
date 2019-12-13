@@ -1,11 +1,18 @@
+/*placeholder styling mixin 
+  https://stackoverflow.com/a/17181946 */
 .hidden {
   display: none;
 }
 
 body {
-  padding: 25px;
+  padding: 80px;
   /*margin-top: 20%;*/
   font-family: "Montserrat", sans-serif;
+  background-color: #f6f6f6;
+  background-image: url("../images/plantbg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right;
 }
 
 a {
@@ -13,24 +20,9 @@ a {
   text-decoration: none;
 }
 
-#menu {
-  visibility: hidden;
-  height: 0px;
-}
-
-#container {
-  margin-top: -20%;
-}
-
-#burgerMenu {
-  margin-right: auto;
-  background-color: red;
-}
-
 #navigation li {
   list-style: none;
   text-align: left;
-  margin-left: -40%;
 }
 
 #nativation ul {
@@ -39,10 +31,59 @@ a {
 }
 
 #bmIcon {
+  position: fixed;
+  font-size: 20px;
   color: #d49b29;
-  background-color: green;
-  margin-left: -5%;
-  margin-top: -30%;
+  top: 5px;
+  text-shadow: 2px 7px 3px #f8f8f8;
+  z-index: 6;
+  margin-left: 10px;
+  padding-bottom: 20px;
+  /*css animation on click*/
+  transition: all 150ms ease-in-out;
+}
+
+/*css animation*/
+#bmIcon.menuExpanded {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  margin-left: -5px;
+  margin-top: -10px;
+}
+
+#burgerMenu {
+  margin-right: auto;
+}
+#burgerMenu ul {
+  margin-top: 5px;
+}
+#burgerMenu li {
+  border-bottom: 1px solid rgba(36, 52, 59, 0.4);
+}
+#burgerMenu li:first-child {
+  border-top: 1px solid rgba(36, 52, 59, 0.4);
+}
+#burgerMenu #burgerMenuList a {
+  display: block;
+  color: #d49b29;
+  text-decoration: none;
+  padding: 10px 0 10px 0;
+  text-align: left;
+}
+#burgerMenu #burgerMenuList li a:hover, #burgerMenu #burgerMenuList li:hover a {
+  background-color: #d49b29;
+  color: #f8f8f8;
+}
+#burgerMenu #burgerMenuList li a:hover ion-icon, #burgerMenu #burgerMenuList li:hover a ion-icon {
+  background-color: #d49b29;
+  color: #f8f8f8;
+}
+
+/*menu icons*/
+ion-icon {
+  color: #d49b29;
+  font-size: 20px;
 }
 
 img {
@@ -61,6 +102,66 @@ img {
 #doughnutChartsCon {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1));
+}
+
+#footerMenu {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  margin-bottom: -80px;
+  margin-left: -30px;
+}
+#footerMenu li {
+  margin: 20px;
+}
+
+/*desktop mode*/
+@media screen and (min-width: 768px) {
+  #burgerMenu, #bmIcon {
+    display: none;
+  }
+
+  #menu ul {
+    visibility: visible;
+    height: auto;
+    position: fixed;
+    top: 25%;
+    z-index: 2;
+    display: grid;
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    grid-gap: 50px;
+    margin-left: -50px;
+  }
+  #menu ul div.button {
+    display: flex;
+    margin-bottom: 1px;
+  }
+  #menu ul ion-icon {
+    color: #d49b29;
+  }
+
+  #logo {
+    margin-left: -18px;
+    margin-top: -30px;
+  }
+
+  #welcome {
+    text-align: center;
+    color: #24343b;
+    margin-top: -120px;
+    margin-bottom: 80px;
+    font-weight: normal;
+  }
+
+  h1 {
+    font-size: 70px;
+  }
+
+  h2 {
+    font-size: 20px;
+    word-spacing: 3px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
