@@ -1,41 +1,60 @@
+$montserratRegular: 'Montserrat', sans-serif;
+
 $primaryColor: #24343b;
 $secondaryColor: #f8f8f8;
-$accentcolor: #d49b29;
+$accentColor: #d49b29;
+$transparencyValue: 0.6;
+
+$desktopWidth: 768px;
+
+@mixin transform($transformation) {
+  -webkit-transform: $transformation;
+  -ms-transform: $transformation;
+  transform: $transformation;
+}
+
+/*placeholder styling mixin 
+  https://stackoverflow.com/a/17181946 */
+  @mixin placeholderStyle {
+    ::-webkit-input-placeholder { @content }
+    :-moz-placeholder           { @content }
+    ::-moz-placeholder          { @content }
+    :-ms-input-placeholder      { @content }  
+  }
 
 .hidden {
   display: none;
 }
 
 body {
-    padding: 25px;
+    padding: 80px;
     /*margin-top: 20%;*/
     font-family: 'Montserrat', sans-serif;
+    background-color: #f6f6f6;
+    background-image: url("../images/plantbg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
   }
   
 a {
   color: $primaryColor;
   text-decoration: none;
 }
-
-#menu {
-    visibility: hidden;
-  height: 0px;
-}
  
-#container {
-  margin-top: -20%;
+// #container {
+//   // margin-top: -20%;
+// }
 
-}
-
-#burgerMenu{
-   margin-right: auto;
-   background-color: red;
-}
+// #burgerMenu{
+//    margin-right: auto;
+//   //  background-color: red;
+// }
 
  #navigation li {
     list-style: none;
     text-align: left;
-    margin-left: -40%;
+    // margin-left: -40%;
 
   }
 
@@ -45,11 +64,70 @@ a {
  } 
 
 #bmIcon{
+  position: fixed;
+  font-size: 20px;
   color: #d49b29;
-  background-color: green;
-  margin-left: -5%;
-  margin-top: -30%;
+  top: 5px;
+  text-shadow: 2px 7px 3px $secondaryColor; 
+
+  z-index: 6;
+  margin-left: 10px;
+  padding-bottom: 20px;
+  
+  /*css animation on click*/
+  transition: all 150ms ease-in-out;
+}
+
+/*css animation*/
+#bmIcon.menuExpanded { 
+  @include transform(rotate(90deg));
+  margin-left: -5px;
+  margin-top: -10px;
+}
+
+#burgerMenu {
+  margin-right: auto;
+
+  ul {
+    margin-top: 5px;
   }
+
+  li {
+    border-bottom: 1px solid transparentize($primaryColor, $transparencyValue);
+  }
+
+  li:first-child {
+    border-top: 1px solid transparentize($primaryColor, $transparencyValue);
+  }
+
+  #burgerMenuList {
+    a {
+      // background-color: $secondaryColor;
+      display: block;
+      color: $accentColor;
+      text-decoration: none;
+      padding: 10px 0 10px 0;
+      text-align: left;
+    }
+    
+    li a:hover, li:hover a { 
+      background-color: $accentColor;
+      color: $secondaryColor;
+
+      ion-icon {
+        background-color: $accentColor;
+        color: $secondaryColor;
+      }
+    }
+  }
+}
+  
+  /*menu icons*/
+  ion-icon {
+    color: #d49b29;
+    font-size: 20px;
+  }
+
 
   img {
     border-radius: 50%;
@@ -65,6 +143,7 @@ a {
 
 #doughnutChartsCon {
   display: grid;
+<<<<<<< HEAD
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -79,3 +158,74 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+=======
+  grid-template-columns: repeat(3, minmax(0, 1));
+}
+
+#footerMenu {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  margin-bottom: -80px;
+  margin-left: -30px;
+  
+  li {
+    margin: 20px;
+  }
+}
+
+/*desktop mode*/
+@media screen and (min-width: $desktopWidth) {
+  #burgerMenu, #bmIcon {
+    display: none;
+  }
+  #menu {
+    ul {
+      visibility: visible;
+      height: auto;
+
+      position: fixed;
+      top: 25%;
+      z-index: 2;
+  
+      display: grid;
+      grid-template-rows: repeat(4, minmax(0, 1fr));
+      grid-gap: 50px;
+      margin-left: -50px;
+  
+      div.button {
+        display: flex;
+        margin-bottom: 1px;
+      }
+      
+      ion-icon {
+        color: $accentColor;
+      }
+    }
+  }  
+
+  #logo {
+    margin-left: -18px;
+    margin-top: -30px;
+  }
+
+  #welcome {
+    text-align: center;
+    color: $primaryColor;
+    margin-top: -120px;
+    margin-bottom: 80px;
+    // font-family: $montserratRegular;
+    font-weight: normal;
+  }
+
+  h1 {
+    font-size: 70px;
+  }
+
+  h2 {
+    font-size: 20px;
+    word-spacing: 3px;
+  }
+}
+>>>>>>> 05a61f2a64a7d521e276a263b0e9e30c2eeb31a7

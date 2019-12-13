@@ -1,78 +1,17 @@
-.hidden {
-  display: none;
-}
+/* Error: expected "{".
+ *     ,
+ * 147 |   grid-template-columns: repeat(3, minmax(0, 1fr));
+ *     |                                                   ^
+ *     '
+ *   style.scss 147:51  root stylesheet */
 
-body {
-  padding: 25px;
-  /*margin-top: 20%;*/
-  font-family: "Montserrat", sans-serif;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: expected "{".\a     \2577 \a 147 \2502    grid-template-columns: repeat(3, minmax(0, 1fr));\d\a     \2502                                                    ^\a     \2575 \a   style.scss 147:51  root stylesheet';
 }
-
-a {
-  color: #24343b;
-  text-decoration: none;
-}
-
-#menu {
-  visibility: hidden;
-  height: 0px;
-}
-
-#container {
-  margin-top: -20%;
-}
-
-#burgerMenu {
-  margin-right: auto;
-  background-color: red;
-}
-
-#navigation li {
-  list-style: none;
-  text-align: left;
-  margin-left: -40%;
-}
-
-#nativation ul {
-  text-align: left;
-  list-style: none;
-}
-
-#bmIcon {
-  color: #d49b29;
-  background-color: green;
-  margin-left: -5%;
-  margin-top: -30%;
-}
-
-img {
-  border-radius: 50%;
-}
-
-#dashboard {
-  display: flex;
-  flex-direction: row;
-}
-
-.temperature:hover {
-  cursor: pointer;
-}
-
-#doughnutChartsCon {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.sensorCon {
-  position: relative;
-}
-
-.sensorData {
-  /*chart text centering https://jsfiddle.net/mgyp0jkk/ */
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/*# sourceMappingURL=style.css.map */

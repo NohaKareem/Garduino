@@ -12,25 +12,39 @@
     <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
 
+<<<<<<< HEAD
         <link rel="stylesheet" href="./css/style.css">
+=======
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/ScrollToPlugin.min.js"></script>
+
+	<link rel="stylesheet" href="./css/style.css">
+>>>>>>> 05a61f2a64a7d521e276a263b0e9e30c2eeb31a7
 </head>
 <body>
+<img src="images/logo/logoicon.png" alt="NURTURE" id="logo">
     <a href="#" id="bmIcon">
                 <ion-icon name="menu"></ion-icon>
         </a>
     <main id="container">
         <section id="navigation">
             <h1 class="hidden">Intro section</h1>
-            <nav id="burgerMenu">
+            <nav id="burgerMenu" class="hidden">
                 <h2 class="hidden">Burger Menu</h2>
-                    <ul>
+                    <ul id="burgerMenuList">
+                        <li><ion-icon name="home"></ion-icon>
+                            <a href="#">Home</a></li>
+
                         <li><ion-icon name="leaf"></ion-icon>
                             <a href="#">My Plants</a></li>
                         
                         <li><ion-icon name="settings"></ion-icon>
                             <a href="#">Settings</a></li>
 
-                        <li><ion-icon name="help-circle-outline"></ion-icon>
+                        <li><ion-icon name="help"></ion-icon>
+                            <a href="#">Help</a></li>
+
+                        <li><ion-icon name="log-out"></ion-icon>
                             <a href="#">Help</a></li>
                     </ul>
             </nav>
@@ -38,22 +52,27 @@
             <nav id="menu">
                 <h2 class="hidden">Menu</h2>
                 <ul>
-                    <li><ion-icon name="leaf"></ion-icon>
-                        <a href="#">My Plants</a></li>
-                    <li><ion-icon name="settings"></ion-icon>
-                        <a href="#">Settings</a></li>
-                    <li><ion-icon name="help-circle-outline"></ion-icon>
-                        <a href="#">Help</a></li>
+                    <li><div class="button"><ion-icon name="home" size="large"></ion-icon></div>
+                        <a href="#"></a></li>
+                    <li><div class="button"><ion-icon name="leaf" size="large"></ion-icon></div>
+                        <a href="#"></a></li>
+                    <li><div class="button"></div><ion-icon name="settings" size="large"></ion-icon></div>
+                        <a href="#"></a></li>
+                    <li><div class="button"></div><ion-icon name="help" size="large"></ion-icon></div>
+                        <a href="#"></a></li>
+                    <li><div class="button"></div><ion-icon name="log-out" size="large"></ion-icon></div>
+                        <a href="#"></a></li>
                 </ul>
             </nav>
         </section>
 
         <section id="contianer2">
             <h1 class="hidden">Dashboard</h1>
-            <div id="dashboard">
-                <img src="public/images/plantpro.png" alt="plant profile">
-                <h3>Name: <br>Greeny
-                <br>Last update: <br>Dec 08, 2019</h3>
+            <div id="welcome">
+                <h1>Hey Ria!</h1>
+                <h2>Your cactus Greeny is looking sad!
+                    <br>It could use a little light!
+                </h2>
             </div>
             <div id="doughnutChartsCon">
                 <div id="hydrometerCon" class="sensorCon">
@@ -70,7 +89,12 @@
                     <canvas id="lightDoughnut"></canvas>
                     <h2 id="lightCurrReading" class="sensorData"></h2>
                 </div>
+<<<<<<< HEAD
             </div>
+=======
+                <canvas id="lightDoughnut"></canvas>
+            </div>        
+>>>>>>> 05a61f2a64a7d521e276a263b0e9e30c2eeb31a7
             <div id="historyData">
                 <canvas id="lineChart"></canvas>
             </div>
@@ -81,10 +105,30 @@
         </section>
 
         <footer>
-            <div class="cont"><h3>Footer</h3></div>
+            <ul id="footerMenu">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Privacy</a></li>
+            </ul></div>
         </footer>
    
     </main>
+
+    <script>
+        const { exec } = require('child_process');
+
+        const child = exec('node app/js/main.js',
+            (error, stdout, stderr) => {
+                console.log(`stdout: ${stdout}`);
+                console.log(`stderr: ${stderr}`);
+                if (error !== null) {
+                console.log(`exec error: ${error}`);
+                }
+            });
+            child.stdout.on('data', (data) => {
+            console.log(data.toString());
+        });
+    </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
     <script src="js/gsap.min.js"></script>
     <script src="js/main.js"></script>

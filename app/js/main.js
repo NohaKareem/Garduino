@@ -167,3 +167,20 @@ breadboard.on("ready", function(){
 //         }
 //     }
 // });
+
+var bmIcon = document.querySelector("#bmIcon");
+var burgerMenuList = document.querySelector("#burgerMenu");
+var mblNavLinks = document.querySelectorAll("#burgerMenuList li a");
+
+
+function burgerMenu(e) {
+	burgerMenuList.classList.toggle("hidden");
+	bmIcon.classList.toggle("menuExpanded");
+}
+
+bmIcon.addEventListener("click", burgerMenu, false);
+
+for (var i = 0; i < mblNavLinks.length; i++) {
+	mblNavLinks[i].addEventListener("click", smoothScroll, false);
+	dsktpNavLinks[i].addEventListener("click", smoothScroll, false);
+}
